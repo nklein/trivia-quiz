@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "sourceMap": true,
     "noImplicitAny": true,
     "moduleResolution": "node",
     "module": "es6",
     "target": "es5",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/__tests__/*"]

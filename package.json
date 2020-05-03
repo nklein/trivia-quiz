@@ -14,7 +14,9 @@
   "devDependencies": {
     "@types/bootstrap": "^4.3.2",
     "@types/jquery": "^3.3.37",
+    "css-loader": "^3.5.3",
     "prettier": "^2.0.5",
+    "style-loader": "^1.2.1",
     "ts-loader": "^7.0.2",
     "tslint": "^6.1.2",
     "typescript": "^3.8.3",
