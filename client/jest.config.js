@@ -4,8 +4,16 @@ module.exports = {
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx|tsx)$',
 
   coverageDirectory: './coverage',
-  collectCoverageFrom: ['./src/**/{!(*.d),}.ts'],
+  collectCoverageFrom: ['./src/**/{!(index|*.d),}.ts'],
   coverageReporters: ['text', 'html'],
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
 
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   moduleDirectories: ["node_modules"],
