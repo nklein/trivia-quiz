@@ -1,12 +1,14 @@
 import $ from 'jquery';
 
-import style from './style.css';
+import bootstrap from 'bootstrap';
+import bootstrapStyle from 'bootstrap/dist/css/bootstrap.min.css';
 
 import Page from './pages/Page';
 import SplashPage from './pages/SplashPage';
 
-const styles = [
-    style
+const depends = [
+  bootstrap,
+  bootstrapStyle
 ];
 
 export default class TriviaApp {
