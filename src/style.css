@@ -1,1 +1,9 @@
-h1 { color: red; }
+.hidden
+{
+  display: none;
+}
+
+h1
+{
+  color: red;
+}
