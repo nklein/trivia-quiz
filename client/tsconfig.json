@@ -8,6 +8,7 @@
     "target": "es5",
     "baseUrl": ".",
     "paths": {
+      "@/*": ["src/*"],
       "trivia-common/*": ["../common/src"]
     },
     "allowJs": true,
@@ -17,9 +18,4 @@
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/__tests__/*"],
-  "references": [
-    {
-      "path": "../common/src"
-    }
-  ]
 }
