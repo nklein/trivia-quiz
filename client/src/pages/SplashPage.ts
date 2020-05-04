@@ -42,8 +42,7 @@ export default class SplashPage extends Page {
   }
 
   private makeGameSummaryCard = (desc: GameDescription) => {
-    const fragment = $('#splash-card').prop('content').cloneNode(true);
-    const card = $(fragment).find('.card');
+    const card = $($('#splash-card').prop('content').cloneNode(true).querySelector('.card'));
     card.find('.game-poster').attr('src', desc.posterImageUrl);
     card.find('.game-poster').attr('alt', `poster image for ${desc.name}`);
     card.find('.game-name').text(desc.name);
