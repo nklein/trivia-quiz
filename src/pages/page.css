@@ -1,0 +1,10 @@
+section.page
+{
+  background-color: teal;
+
+  border-color: navy;
+  border-style: solid;
+  border-width: 1pt;
+
+  padding: 1em;
+}

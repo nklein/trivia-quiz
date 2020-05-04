@@ -5,12 +5,25 @@
     <script src="bundle.js"></script>
   </head>
   <body onload="trivia.restartApp()">
-    <section id="splash" class="page">
-      <h1>Splash</h1>
-    </section>
 
-    <section id="about" class="page">
-      <h1>About</h1>
+    <main id="main">
+    </main>
+
+    <section id="templates" class="hidden">
+      <template id="splash">
+        <section class="page">
+          <h1>Splash</h1>
+          <p class="body">
+            Splash page is loading...
+          </p>
+        </section>
+      </template>
+
+      <template id="about">
+        <section class="page">
+          <h1>About</h1>
+        </section>
+      </template>
     </section>
   </body>
 </html>
