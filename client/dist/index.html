@@ -3,6 +3,7 @@
   <head>
     <title>Trivia Quiz</title>
     <script src="bundle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
   <body onload="trivia.restartApp()">
 
@@ -10,14 +11,29 @@
     </main>
 
     <section id="templates" style="display: none;">
-      <template id="splash">
-        <section class="page">
-          <h1>Splash</h1>
-          <p class="body">
-            Splash page is loading...
-          </p>
-        </section>
-      </template>
+      <section id="splash-templates">
+        <template id="splash">
+          <section class="page splash-page">
+            <div class="container">
+              <h1>Splash</h1>
+              <div class="body row">
+                <p>Splash page is loading...</p>
+              </div>
+            </div>
+          </section>
+        </template>
+
+        <template id="splash-card">
+          <div class="card col-12 col-sm-6 col-md-4">
+            <img class="game-poster card-image-top" />
+            <div class="card-body">
+              <h3 class="game-name"></h3>
+              <div class="game-description card-text"></div>
+              <a href="#" class="btn btn-primary">Join</a>
+            </div>
+          </div>
+        </template>
+      </section>
 
       <template id="about">
         <section class="page">

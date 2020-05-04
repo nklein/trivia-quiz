@@ -8,9 +8,7 @@ export default class Page {
   protected readonly _contents: DocumentFragment;
 
   constructor(templateSelector: string) {
-    this._contents = $(templateSelector)
-      .prop('content')
-      .cloneNode(true);
+    this._contents = $(templateSelector).prop('content').cloneNode(true);
   }
 
   public get contents() {
