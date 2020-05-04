@@ -7,15 +7,10 @@ import bootstrapStyle from 'bootstrap/dist/css/bootstrap.min.css';
 import Page from './pages/Page';
 import SplashPage from './pages/SplashPage';
 
-const depends = [
-  custom,
-  bootstrap,
-  bootstrapStyle
-];
+const depends = [custom, bootstrap, bootstrapStyle];
 
 export default class TriviaApp {
-
-  private curPage : Page
+  private curPage: Page;
 
   public restartApp = () => {
     this.showPage(new SplashPage());
