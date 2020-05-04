@@ -13,4 +13,6 @@ module.exports = {
     "@/(.*)": "<rootDir>/src/$1",
     "\\.css": "<rootDir>/__tests__/cssMock.js",
   },
+
+  setupFilesAfterEnv: [ "./__tests__/jestSetup.ts" ],
 };
