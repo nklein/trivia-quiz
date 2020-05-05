@@ -36,15 +36,11 @@ section.splash-page img.game-poster
 
 dl.game-stats
 {
-  clear: both;
-  float: right;
-
   background-color: bisque;
-
   font-size: small;
 
-  margin-left: 1em;
   padding: 1em;
+  width: 100%;
 }
 
 dl.game-stats dt
