@@ -1,10 +1,17 @@
+#main
+{
+  padding: 5%;
+}
+
 section.page
 {
-  background-color: teal;
+  background-color: rgba(0,128,128,0.95);
 
-  border-color: navy;
+  border-color: rgba(0,64,64,0.75);
   border-style: solid;
-  border-width: 1pt;
+  border-width: 2pt;
+
+  overflow: scroll;
 
   padding: 1em;
 }

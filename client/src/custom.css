@@ -5,3 +5,10 @@ body,
 {
   height: 100%;
 }
+
+body
+{
+  background-image: url('images/tumbler-backdrop.jpg');
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+}
