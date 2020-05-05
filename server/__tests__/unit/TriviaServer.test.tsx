@@ -20,7 +20,7 @@ describe('Trivia Server tests', () => {
     app.listen.mockClear();
     srvr.close.mockClear();
 
-    trivia = new TriviaServer(app as any as express.Application);
+    trivia = new TriviaServer((app as any) as express.Application);
   });
 
   test('Can construct', () => {

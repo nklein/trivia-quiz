@@ -13,13 +13,13 @@ export default class TriviaServer {
   }
 
   public listen = async (port: number) =>
-    this.server = this.app.listen(port, () => {
+    (this.server = this.app.listen(port, () => {
       console.log(`Server started on ${port}`);
-    });
+    }));
 
   public close = async () => {
     const srvr = this.server!;
     this.server = undefined;
     return srvr.close();
   };
-};
+}
