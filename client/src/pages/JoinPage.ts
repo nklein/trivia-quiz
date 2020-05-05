@@ -11,6 +11,14 @@ export default class JoinPage extends Page {
   constructor(pager: IPager, api: TriviaApi, gameId: string, gameName: string) {
     super('#join');
 
-    $(this.contents).find('.game-name').text(gameName);
+    const base = $(this.contents);
+    base.find('.game-name').text(gameName);
+    base.find('.team-option-panel').hide();
+
+    base.find('#team-type').change(() => {
+      base.find('.team-option-panel').hide();
+      const selector = base.find('#team-type').val().toString();
+      base.find(selector).show();
+    });
   }
 }

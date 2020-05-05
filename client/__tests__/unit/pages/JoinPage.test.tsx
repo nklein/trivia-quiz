@@ -18,12 +18,11 @@ describe('JoinPage tests', () => {
             <div class="container">
               <h1>Join: <span class="game-name"></span></h1>
               <div class="body">
-                <form id="join-form">
-                  <div class="row">
-                    <label class="col-3">Name</label>
-                    <input id="name-field" type="text" class="col-8">
-                  </div>
-                </form>
+                <select id="team-type">
+                  <option value=".team-solo">Solo</option>
+                  <option value=".team-new">New Team</option>
+                  <option value=".team-join">Join Team</option>
+                </select>
               </div>
             </div>
           </section>
@@ -42,5 +41,14 @@ describe('JoinPage tests', () => {
   test('Require page template to construct', () => {
     $('body').empty();
     expect(() => new JoinPage(pager, api, 'id', 'name')).toThrow();
+  });
+
+  test.each([
+    '.team-solo',
+    '.team-new',
+    '.team-join',
+  ]) ('Can switch team type to %p', (selector: string) => {
+    const select = $(join.contents).find('#team-type');
+    select.val(selector).change();
   });
 });
