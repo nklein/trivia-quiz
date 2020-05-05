@@ -1,5 +1,6 @@
 import $ = require('jquery');
 import * as moment from 'moment';
+import { mock } from 'jest-mock-extended';
 
 import TriviaApi from '@/TriviaApi';
 import SplashPage from '@/pages/SplashPage';
@@ -7,20 +8,7 @@ import SplashPage from '@/pages/SplashPage';
 const _global = global as any;
 
 describe('SplashPage tests', () => {
-  const api = ({
-    getUpcomingGames: jest.fn(async () => [
-      {
-        id: 'id',
-        name: 'game name',
-        posterImageUrl: 'poster-url',
-        description: 'description',
-        openingTime: moment().add(25, 'minute').toISOString(),
-        startingTime: moment().add(55, 'minute').toISOString(),
-        durationInMin: 10,
-      },
-    ]),
-  } as any) as TriviaApi;
-
+  const api = mock<TriviaApi>();
   const pageTemplate = () =>
     $(`
         <template id="splash">
@@ -47,6 +35,19 @@ describe('SplashPage tests', () => {
 
   beforeEach(() => {
     $('body').empty().append(pageTemplate()).append(cardTemplate());
+
+    api.getUpcomingGames.mockClear();
+    api.getUpcomingGames.mockImplementation(async () => [
+      {
+        id: 'id',
+        name: 'game name',
+        posterImageUrl: 'poster-url',
+        description: 'description',
+        openingTime: moment().add(25, 'minute').toISOString(),
+        startingTime: moment().add(55, 'minute').toISOString(),
+        durationInMin: 10,
+      },
+    ]);
   });
 
   test('Can construct', () => {
