@@ -1,0 +1,64 @@
+section.splash-page .card
+{
+  position: relative;
+  top: 0;
+
+  border-width: 3pt;
+  border-color: black;
+}
+
+section.splash-page h3.game-name
+{
+  position: absolute;
+  top: 6pt;
+  right: 0;
+
+  color: white;
+  background-color: rgba(0,0,0,0.7);
+  background: linear-gradient(0deg, transparent, rgba(0,0,0,0.5) 20%, black);
+
+  max-width: 80%;
+  min-height: 4em;
+
+  padding-left: 1em;
+  padding-right: 1.5em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+
+  text-align: right;
+}
+
+section.splash-page img.game-poster
+{
+  width: 100%;
+  height: auto;
+}
+
+dl.game-stats
+{
+  clear: both;
+  float: right;
+
+  background-color: bisque;
+
+  font-size: small;
+
+  margin-left: 1em;
+  padding: 1em;
+}
+
+dl.game-stats dt
+{
+  clear: left;
+  float: left;
+
+  text-align: right;
+
+  width: 4em;
+}
+
+dl.game-stats dd
+{
+  margin-left: 4.5em;
+  margin-bottom: 0;
+}

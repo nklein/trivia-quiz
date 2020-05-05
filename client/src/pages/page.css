@@ -1,0 +1,21 @@
+#main
+{
+  padding: 5%;
+}
+
+section.page
+{
+  background-color: rgba(0,128,128,0.95);
+
+  border-color: black;
+  border-style: solid;
+  border-width: 3pt;
+
+  padding: 1em;
+}
+
+section.page > div.container
+{
+  height: 100%;
+  overflow: scroll;
+}

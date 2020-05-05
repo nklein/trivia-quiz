@@ -4,17 +4,27 @@
   "description": "Trivia Quiz Game",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "build": "webpack --mode=development",
+    "build-prod": "webpack --mode=production",
+    "format": "prettier --write \"src/**/*.ts\" \"__tests__/**/*.tsx\"",
     "lint": "tslint -p tsconfig.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "author": "Patrick Stein <pat@nklein.com>",
   "license": "Unlicense",
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.5.0",
     "@types/bootstrap": "^4.3.2",
+    "@types/jest": "^25.2.1",
     "@types/jquery": "^3.3.37",
+    "@types/jsdom": "^16.2.1",
+    "css-loader": "^3.5.3",
+    "jest": "^25.5.4",
+    "jest-html-reporter": "^3.1.0",
+    "jsdom": "^16.2.2",
     "prettier": "^2.0.5",
+    "style-loader": "^1.2.1",
+    "ts-jest": "^25.4.0",
     "ts-loader": "^7.0.2",
     "tslint": "^6.1.2",
     "typescript": "^3.8.3",
@@ -24,6 +34,8 @@
   "dependencies": {
     "@types/popper.js": "^1.11.0",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.5.0"
+    "file-loader": "^6.0.0",
+    "jquery": "^3.5.0",
+    "moment": "^2.25.3"
   }
 }
