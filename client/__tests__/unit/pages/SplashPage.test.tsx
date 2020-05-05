@@ -10,13 +10,13 @@ describe('SplashPage tests', () => {
   const api = ({
     getUpcomingGames: jest.fn(async () => [
       {
+        id: 'id',
         name: 'game name',
         posterImageUrl: 'poster-url',
         description: 'description',
         openingTime: moment().add(25, 'minute').toISOString(),
         startingTime: moment().add(55, 'minute').toISOString(),
         durationInMin: 10,
-        joinUrl: 'join-url',
       },
     ]),
   } as any) as TriviaApi;

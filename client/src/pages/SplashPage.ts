@@ -31,7 +31,7 @@ export default class SplashPage extends Page {
     card.find('.game-opening-time').text(this.formatTime(desc.openingTime));
     card.find('.game-starting-time').text(this.formatTime(desc.startingTime));
     card.find('.game-duration').text(this.formatDuration(desc.durationInMin));
-    card.attr('data-join-url', desc.joinUrl);
+    card.attr('data-game-id', desc.id);
     return card;
   };
 
