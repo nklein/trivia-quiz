@@ -16,13 +16,44 @@ section.splash-page h3.game-name
   max-width: 80%;
 
   padding-left: 1em;
-  padding-right: 3em;
+  padding-right: 1.5em;
   padding-top: 0.25em;
   padding-bottom: 0.25em;
+
+  text-align: right;
 }
 
 section.splash-page img.game-poster
 {
   width: 100%;
   height: auto;
+}
+
+dl.game-stats
+{
+  clear: both;
+  float: right;
+
+  background-color: bisque;
+
+  font-size: small;
+
+  margin-left: 1em;
+  padding: 1em;
+}
+
+dl.game-stats dt
+{
+  clear: left;
+  float: left;
+
+  text-align: right;
+
+  width: 4em;
+}
+
+dl.game-stats dd
+{
+  margin-left: 4.5em;
+  margin-bottom: 0;
 }

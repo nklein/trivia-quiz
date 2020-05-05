@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import { GameDescription } from 'trivia-common/GameDescription';
 
 export default class TriviaApi {
@@ -12,8 +13,8 @@ export default class TriviaApi {
       name: 'Blade Runner Trivia',
       posterImageUrl: 'http://localhost:3000/images/blade-runner.jpg',
       description: '<p>Blade Runner trivia questions</p><p>Wake up. Time to die.</p>',
-      openingTime: new Date().toISOString(),
-      startingTime: new Date().toISOString(),
+      openingTime: moment().add(25, 'minute').toISOString(),
+      startingTime: moment().add(55, 'minute').toISOString(),
       durationInMin: 10,
       joinUrl: 'http://localhost:3000/game/B26354/join',
     } as GameDescription,
@@ -21,8 +22,8 @@ export default class TriviaApi {
       name: 'MN Kink Theory Book Club Trivia',
       posterImageUrl: 'http://localhost:3000/images/book-club.jpg',
       description: '<p>Test your Kink Theory.</p>',
-      openingTime: new Date().toISOString(),
-      startingTime: new Date().toISOString(),
+      openingTime: moment().add(75, 'minute').toISOString(),
+      startingTime: moment().add(105, 'minute').toISOString(),
       durationInMin: 20,
       joinUrl: 'http://localhost:3000/game/MNKTBC100/join',
     } as GameDescription,

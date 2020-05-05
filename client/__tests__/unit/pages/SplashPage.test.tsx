@@ -1,9 +1,26 @@
-import $ from 'jquery';
+import $ = require('jquery');
+import * as moment from 'moment';
+
+import TriviaApi from '@/TriviaApi';
 import SplashPage from '@/pages/SplashPage';
 
 const _global = global as any;
 
 describe('SplashPage tests', () => {
+  const api = ({
+    getUpcomingGames: jest.fn(async () => [
+      {
+        name: 'game name',
+        posterImageUrl: 'poster-url',
+        description: 'description',
+        openingTime: moment().add(25, 'minute').toISOString(),
+        startingTime: moment().add(55, 'minute').toISOString(),
+        durationInMin: 10,
+        joinUrl: 'join-url',
+      },
+    ]),
+  } as any) as TriviaApi;
+
   const pageTemplate = () =>
     $(`
         <template id="splash">
@@ -33,16 +50,11 @@ describe('SplashPage tests', () => {
   });
 
   test('Can construct', () => {
-    expect(new SplashPage()).toBeTruthy();
+    expect(new SplashPage(api)).toBeTruthy();
   });
 
   test('Require page template to construct', () => {
     $('body').empty().append(cardTemplate());
-    expect(() => new SplashPage()).toThrow();
-  });
-
-  test('Requires card template to construct', () => {
-    $('body').empty().append(pageTemplate());
-    expect(() => new SplashPage()).toThrow();
+    expect(() => new SplashPage(api)).toThrow();
   });
 });

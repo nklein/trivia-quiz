@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import * as $ from 'jquery';
 
 import custom from './custom.css';
 import bootstrapStyle from 'bootstrap/dist/css/bootstrap.min.css';

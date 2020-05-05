@@ -1,6 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx|tsx)$',
 
   coverageDirectory: './coverage',
@@ -21,6 +21,4 @@ module.exports = {
     "@/(.*)": "<rootDir>/src/$1",
     "\\.css": "<rootDir>/__tests__/cssMock.js",
   },
-
-  setupFilesAfterEnv: [ "./__tests__/jestSetup.ts" ],
 };
