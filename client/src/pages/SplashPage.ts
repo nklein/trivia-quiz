@@ -1,44 +1,25 @@
 import $ from 'jquery';
 
+import { GameDescription } from 'trivia-common/GameDescription';
+import TriviaApi from '../TriviaApi';
 import Page from './Page';
 
-import { GameDescription } from 'trivia-common/GameDescription';
-
 import style from './splash-page.css';
-
 const styles = [style];
 
 export default class SplashPage extends Page {
-  private descriptions: Array<GameDescription> = [
-    {
-      name: 'Blade Runner Trivia',
-      posterImageUrl: 'http://localhost:3000/images/blade-runner.jpg',
-      description: '<p>Blade Runner trivia questions</p><p>Wake up. Time to die.</p>',
-      openingTime: new Date().toISOString(),
-      startingTime: new Date().toISOString(),
-      durationInMin: 10,
-      joinUrl: 'http://localhost:3000/game/B26354/join',
-    } as GameDescription,
-    {
-      name: 'MN Kink Theory Book Club Triva',
-      posterImageUrl: 'http://localhost:3000/images/book-club.jpg',
-      description: '<p>Test your Kink Theory.</p>',
-      openingTime: new Date().toISOString(),
-      startingTime: new Date().toISOString(),
-      durationInMin: 20,
-      joinUrl: 'http://localhost:3000/game/MNKTBC100/join',
-    } as GameDescription,
-  ];
 
-  constructor() {
+  constructor(api: TriviaApi) {
     super('#splash');
 
     const body = $(this.contents).find('.body');
     body.empty();
 
-    this.descriptions.map((desc: GameDescription) => {
-      body.append(this.makeGameSummaryCard(desc));
-    });
+    api.getUpcomingGames()
+      .then(descriptions =>
+            descriptions.map((desc: GameDescription) => {
+              body.append(this.makeGameSummaryCard(desc));
+            }));
   }
 
   private makeGameSummaryCard = (desc: GameDescription) => {

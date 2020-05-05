@@ -1,4 +1,27 @@
-img.game-poster
+section.splash-page .card
+{
+  position: relative;
+  top: 0;
+}
+
+section.splash-page h3.game-name
+{
+  position: absolute;
+  top: 1em;
+  right: 0;
+
+  color: white;
+  background-color: rgba(0,0,0,0.7);
+
+  max-width: 80%;
+
+  padding-left: 1em;
+  padding-right: 3em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+
+section.splash-page img.game-poster
 {
   width: 100%;
   height: auto;
