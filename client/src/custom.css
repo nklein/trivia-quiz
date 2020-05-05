@@ -12,3 +12,31 @@ body
   background-size: auto 100%;
   background-repeat: repeat-x;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5
+{
+  font-style: oblique;
+}
+
+h1
+{
+  font-size: 3.5rem;
+
+  color: gold;
+
+  margin-bottom: 1.5rem;
+}
+
+h3
+{
+  color: darkred;
+}
+
+.card
+{
+  background-color: beige;
+}
