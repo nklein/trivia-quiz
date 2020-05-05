@@ -36,7 +36,15 @@ h3
   color: darkred;
 }
 
+form,
 .card
 {
   background-color: beige;
+  padding: 1em;
+}
+
+label
+{
+  text-align: right;
+  font-weight: bold;
 }

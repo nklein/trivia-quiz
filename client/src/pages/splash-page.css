@@ -10,7 +10,7 @@ section.splash-page .card
 section.splash-page h3.game-name
 {
   position: absolute;
-  top: 6pt;
+  top: 1em;
   right: 0;
 
   color: white;

@@ -4,12 +4,13 @@ import custom from './custom.css';
 import bootstrapStyle from 'bootstrap/dist/css/bootstrap.min.css';
 
 import TriviaApi from './TriviaApi';
+import IPager from './pages/IPager';
 import Page from './pages/Page';
 import SplashPage from './pages/SplashPage';
 
 const depends = [custom, bootstrapStyle];
 
-export default class TriviaApp {
+export default class TriviaApp implements IPager {
   private api: TriviaApi;
 
   constructor(api: TriviaApi) {
@@ -17,7 +18,7 @@ export default class TriviaApp {
   }
 
   public restartApp = () => {
-    this.showPage(new SplashPage(this.api));
+    this.showPage(new SplashPage(this, this.api));
   };
 
   public showPage = (page: Page) => {
