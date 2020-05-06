@@ -1,5 +1,28 @@
 import * as moment from 'moment';
 import { GameDescription } from 'trivia-common/GameDescription';
+import { JoinRequest } from 'trivia-common/JoinRequest';
+
+export class UnknownGameError extends Error {
+  public readonly gameId: string;
+
+  /* istanbul ignore next */
+  constructor(gameId: string) {
+    super(`Unknown Game: ${gameId}`);
+    Object.setPrototypeOf(this, new.target.prototype);
+    this.gameId = gameId;
+  }
+}
+
+export class UnknownTeamError extends Error {
+  public readonly joinCode: string;
+
+  /* istanbul ignore next */
+  constructor(joinCode: string) {
+    super(`No team with join code: ${joinCode}`);
+    Object.setPrototypeOf(this, new.target.prototype);
+    this.joinCode = joinCode;
+  }
+}
 
 export default class TriviaApi {
   private baseUrl: string;
@@ -28,4 +51,16 @@ export default class TriviaApi {
       durationInMin: 20,
     } as GameDescription,
   ];
+
+  public enterGame = async (gameId: string, req: JoinRequest) => {
+    if (!gameId.match(/^(B26354|MNKTBC100)$/)) {
+      throw new UnknownGameError(gameId);
+    }
+    if (req.joinCode && !req.joinCode.match(/^t[12]$/)) {
+      throw new UnknownTeamError(req.joinCode);
+    }
+    return {
+      tbd: true,
+    };
+  };
 }
