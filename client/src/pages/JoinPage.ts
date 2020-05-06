@@ -21,4 +21,9 @@ export default class JoinPage extends Page {
       base.find(selector).show();
     });
   }
+
+  public show() {
+    super.show();
+    $(this.contents).find('#team-type').change();
+  }
 }

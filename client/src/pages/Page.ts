@@ -14,4 +14,6 @@ export default class Page {
   public get contents() {
     return this._contents;
   }
+
+  public show(): any {}
 }

@@ -1,10 +1,15 @@
 import * as $ from 'jquery';
 
-import * as original from '@/pages/SplashPage';
-jest.mock('@/pages/SplashPage');
+import SplashPage from '@/pages/SplashPage';
+const splash = ({
+  show: jest.fn(),
+} as any) as SplashPage;
 
-const mocked = original as jest.Mocked<typeof original>;
-const SplashPage = mocked.default;
+jest.mock('@/pages/SplashPage', () => {
+  return {
+    default: () => splash,
+  };
+});
 
 import TriviaApi from '@/TriviaApi';
 import TriviaApp from '@/TriviaApp';
@@ -15,7 +20,6 @@ describe('TriviaApp tests', () => {
 
   beforeEach(() => {
     app = new TriviaApp(api);
-    SplashPage.mockClear();
     $('body').empty().append($('<div>').prop('id', 'main'));
   });
 
@@ -23,8 +27,8 @@ describe('TriviaApp tests', () => {
     expect(app).toBeTruthy();
   });
 
-  test('Reset creates a SplashPage', () => {
+  test('Reset creates a SplashPage and shows it', () => {
     app.restartApp();
-    expect(SplashPage).toHaveBeenCalled();
+    expect(splash.show).toHaveBeenCalled();
   });
 });

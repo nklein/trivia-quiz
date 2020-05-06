@@ -2,10 +2,13 @@ import $ = require('jquery');
 import * as moment from 'moment';
 import { mock } from 'jest-mock-extended';
 
-import * as originalJoinPage from '@/pages/JoinPage';
-jest.mock('@/pages/JoinPage');
-const mockedJoinPage = originalJoinPage as jest.Mocked<typeof originalJoinPage>;
-const JoinPage = mockedJoinPage.default;
+import JoinPage from '@/pages/JoinPage';
+const join = {};
+jest.mock('@/pages/JoinPage', () => {
+  return {
+    default: () => join,
+  };
+});
 
 import TriviaApi from '@/TriviaApi';
 import IPager from '@/pages/IPager';
@@ -16,6 +19,7 @@ const _global = global as any;
 describe('SplashPage tests', () => {
   const pager = mock<IPager>();
   const api = mock<TriviaApi>();
+  let splash: SplashPage;
   const pageTemplate = () =>
     $(`
         <template id="splash">
@@ -56,10 +60,7 @@ describe('SplashPage tests', () => {
         durationInMin: 10,
       },
     ]);
-  });
-
-  test('Can construct', () => {
-    expect(new SplashPage(pager, api)).toBeTruthy();
+    splash = new SplashPage(pager, api);
   });
 
   test('Require page template to construct', () => {
@@ -75,8 +76,8 @@ describe('SplashPage tests', () => {
     }).rejects.toThrow();
   });
 
-  test('Join button shows Join pagex', async () => {
-    const splash = new SplashPage(pager, api);
+  test('Join button shows Join page', async () => {
+    splash.show();
     await splash.isLoaded;
     $(splash.contents).find('.join-button').click();
     expect(pager.showPage).toBeCalled();

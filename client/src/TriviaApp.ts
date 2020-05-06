@@ -24,5 +24,6 @@ export default class TriviaApp implements IPager {
   public showPage = (page: Page) => {
     const main = $('#main');
     main.empty().append(page.contents);
+    page.show();
   };
 }

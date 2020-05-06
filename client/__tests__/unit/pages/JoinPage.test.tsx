@@ -43,11 +43,11 @@ describe('JoinPage tests', () => {
     expect(() => new JoinPage(pager, api, 'id', 'name')).toThrow();
   });
 
-  test.each([
-    '.team-solo',
-    '.team-new',
-    '.team-join',
-  ]) ('Can switch team type to %p', (selector: string) => {
+  test('Show succeeds', () => {
+    expect(() => join.show()).not.toThrow();
+  });
+
+  test.each(['.team-solo', '.team-new', '.team-join'])('Can switch team type to %p', (selector: string) => {
     const select = $(join.contents).find('#team-type');
     select.val(selector).change();
   });
